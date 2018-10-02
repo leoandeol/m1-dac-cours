@@ -1,0 +1,70 @@
+\documentclass{report}
+\title{Cours MODEL\thanks{Professeur x, y}}
+\usepackage[T1]{fontenc}
+%\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc} 
+\usepackage[french]{babel}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Q}{\mathbb{Q}}
+\author{Léo Andéol}
+\begin{document}
+	\maketitle
+	\chapter{Bases?}
+	\section{Groupes}
+	\paragraph{Définition} 
+	Soit G un ensemble et $\otimes : G*G \to G$
+	On dit que $(G,\otimes)$ est un groupe si :
+	\begin{enumerate}
+		\item L'opérateur $\otimes$ est associatif $\forall(x,y,z) \in G*G*G$, \newline
+		$(x \otimes y)\otimes z = x \otimes (y \otimes z)$
+		\item $\forall x \in G, \exists e \in G$ tel que $e \otimes x = x \otimes e = x$,\\
+		On appelle cet élément e élément neutre du groupe $(G,\otimes)$
+		\item $\forall x \in G, \exists y \in G$ tel que $x \otimes y = e$ \\
+		On dira que $y$ est l'inverse de $x$ (on le note parfois $x^-1$)
+	\end{enumerate}
+	On dira que $G$ est commutatif (ou abélien) si\\
+	$\forall(x,y)\in G*G, x\otimes y = y\otimes x$
+	\paragraph{Exemples}
+	\begin{itemize}
+		\item $(\Z,+)$ est un groupe commutatif,\\
+		son élément neutre est 0,\\
+		$\forall x \in \Z$ l'inverse de $x$ est $-x$
+		\item $(\Z,*)$ n'est pas un groupe (car 2 n'a pas d'inverse pour $x$ dans $\Z$)
+		\item $(\Q-\{0\},*)$ est un groupe,\\
+		1 est l'élément neutre,\\
+		$\forall x \in \Q - \{0\}, \frac{1}{x}$ est l'inverse de $x$
+		%todo refaire
+		\item On considère l'ensemble des bijections $\sum_n$ de $\{1 \dots n\}$ sur $\{1 \dots n\}$\\
+		Comme opérateur binaire on choisit la loi de composition $\circ$\\
+		Par exemple pour $n=2$ on a :\\
+		%todo mettre les deux en largeur
+		\[
+		\begin{split}
+			\phi_0 : 
+			\begin{bmatrix}
+			1 \to 1 \\ 2 \to 2
+			\end{bmatrix}
+			\\
+			\phi_1 : 
+			\begin{bmatrix}
+			1 \to 2 \\ 2 \to 2
+			\end{bmatrix}
+		\end{split}
+		\]
+		$\phi_1 \circ \phi_0 = \phi_0 \circ \phi_1 = \phi_1$\\
+		Donc $(\sum_2,\circ)$ est un groupe
+		%todo sigma 3, il faut avancer
+		\paragraph{}
+		Un groupe $(G, \otimes)$ tel que $G$ est de cardinalité finie est appelé groupe fini.\\
+		Pour $p \in \N-\{0\}$,\\
+		On note $\frac{\Z}{p\Z}=\{0,1,2,\dots,p-1\}$
+		Soit $x \in \Z$ et $(q,r)$ les quotients et le reste de $x$ par $p$ ($0\leq r < p$).\\
+		$\frac{\Z}{p\Z}$ contient tous les restes possibles.\\
+		Pour $x$ et $y$ dans $\frac{\Z}{p\Z}-\{0\}$ \\
+		On note $x \otimes y = x*y \mod p$\\
+		$\implies$ on prend le reste de la division euclidienne de $x*y$ par $p$
+	\end{itemize}
+\end{document}

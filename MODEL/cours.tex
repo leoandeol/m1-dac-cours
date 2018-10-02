@@ -65,6 +65,23 @@
 		$\frac{\Z}{p\Z}$ contient tous les restes possibles.\\
 		Pour $x$ et $y$ dans $\frac{\Z}{p\Z}-\{0\}$ \\
 		On note $x \otimes y = x*y \mod p$\\
-		$\implies$ on prend le reste de la division euclidienne de $x*y$ par $p$
+		$\implies$ on prend le reste de la division euclidienne de $x*y$ par $p$\\
+		$\otimes : (\frac{\Z}{p\Z}-\{0\}*\frac{\Z}{p\Z}-\{0\})\to \frac{\Z}{p\Z}-\{0\}$\\
+		%todo verifier cours
+		Quand $p$ est un nombre premier $\frac{\Z}{3\Z}-\{0\}=\{1,2\}$\\
+		$1\otimes 2 = 1*2 \mod 3 = 2 \in \frac{\Z}{3\Z}-\{0\}$\\
+		$2\otimes 2 = 4 \mod 3 = 1 \in \frac{\Z}{3\Z}-\{0\}$\\
+		$\implies$ On en déduit que $(\frac{\Z}{3\Z}-\{0\},\otimes)$ est un groupe fini/
+		\paragraph{}
+		Soit $(G,\otimes)$ un groupe fini et $H < G$\\
+		On dit que $H$ est stable par $\otimes$ ssi:\\
+		$\forall(x,y) \in H*H, x \otimes y \in H$\\
+		$\implies$ On peut considérer que la restriction de $\otimes$ à $H$ est un opérateur binaire sur $H$.
+		\paragraph{Définition}
+		On dit que $(H,\otimes)$ est un sous groupe de $(G,\otimes)$ si
+		\begin{enumerate}
+			\item $H$ est stable par $\otimes$
+			\item $(H,\otimes)$ est un groupe
+		\end{enumerate}
 	\end{itemize}
 \end{document}

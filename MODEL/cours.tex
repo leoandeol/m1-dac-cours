@@ -1,44 +1,45 @@
-\documentclass{report}
+\documentclass[10pt,a4paper]{book}
+\usepackage[latin1]{inputenc}
+\usepackage[cyr]{aeguill}
+\usepackage[francais]{babel}
 \title{Cours MODEL\thanks{Professeur x, y}}
-\usepackage[T1]{fontenc}
-%\usepackage[latin1]{inputenc}
-\usepackage[utf8]{inputenc} 
-\usepackage[french]{babel}
-\usepackage{amsfonts}
+\author{Léo Andéol}
 \usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Q}{\mathbb{Q}}
-\author{LÃ©o AndÃ©ol}
 \begin{document}
 	\maketitle
 	\chapter{Bases?}
 	\section{Groupes}
-	\paragraph{DÃ©finition} 
+	\paragraph{Définition} 
 	Soit G un ensemble et $\otimes : G*G \to G$
 	On dit que $(G,\otimes)$ est un groupe si :
 	\begin{enumerate}
-		\item L'opÃ©rateur $\otimes$ est associatif $\forall(x,y,z) \in G*G*G$, \newline
+		\item L'opérateur $\otimes$ est associatif $\forall(x,y,z) \in G*G*G$, \newline
 		$(x \otimes y)\otimes z = x \otimes (y \otimes z)$
 		\item $\forall x \in G, \exists e \in G$ tel que $e \otimes x = x \otimes e = x$,\\
-		On appelle cet Ã©lÃ©ment e Ã©lÃ©ment neutre du groupe $(G,\otimes)$
+		On appelle cet élément e élément neutre du groupe $(G,\otimes)$
 		\item $\forall x \in G, \exists y \in G$ tel que $x \otimes y = e$ \\
 		On dira que $y$ est l'inverse de $x$ (on le note parfois $x^-1$)
 	\end{enumerate}
-	On dira que $G$ est commutatif (ou abÃ©lien) si\\
+	On dira que $G$ est commutatif (ou abélien) si\\
 	$\forall(x,y)\in G*G, x\otimes y = y\otimes x$
 	\paragraph{Exemples}
 	\begin{itemize}
 		\item $(\Z,+)$ est un groupe commutatif,\\
-		son Ã©lÃ©ment neutre est 0,\\
+		son élément neutre est 0,\\
 		$\forall x \in \Z$ l'inverse de $x$ est $-x$
 		\item $(\Z,*)$ n'est pas un groupe (car 2 n'a pas d'inverse pour $x$ dans $\Z$)
 		\item $(\Q-\{0\},*)$ est un groupe,\\
-		1 est l'Ã©lÃ©ment neutre,\\
+		1 est l'élément neutre,\\
 		$\forall x \in \Q - \{0\}, \frac{1}{x}$ est l'inverse de $x$
 		%todo refaire
-		\item On considÃ¨re l'ensemble des bijections $\sum_n$ de $\{1 \dots n\}$ sur $\{1 \dots n\}$\\
-		Comme opÃ©rateur binaire on choisit la loi de composition $\circ$\\
+		\item On considère l'ensemble des bijections $\sum_n$ de $\{1 \dots n\}$ sur $\{1 \dots n\}$\\
+		Comme opérateur binaire on choisit la loi de composition $\circ$\\
 		Par exemple pour $n=2$ on a :\\
 		%todo mettre les deux en largeur
 		\[
@@ -58,7 +59,7 @@
 		Donc $(\sum_2,\circ)$ est un groupe
 		%todo sigma 3, il faut avancer
 		\paragraph{}
-		Un groupe $(G, \otimes)$ tel que $G$ est de cardinalitÃ© finie est appelÃ© groupe fini.\\
+		Un groupe $(G, \otimes)$ tel que $G$ est de cardinalité finie est appelé groupe fini.\\
 		Pour $p \in \N-\{0\}$,\\
 		On note $\frac{\Z}{p\Z}=\{0,1,2,\dots,p-1\}$
 		Soit $x \in \Z$ et $(q,r)$ les quotients et le reste de $x$ par $p$ ($0\leq r < p$).\\
@@ -71,13 +72,13 @@
 		Quand $p$ est un nombre premier $\frac{\Z}{3\Z}-\{0\}=\{1,2\}$\\
 		$1\otimes 2 = 1*2 \mod 3 = 2 \in \frac{\Z}{3\Z}-\{0\}$\\
 		$2\otimes 2 = 4 \mod 3 = 1 \in \frac{\Z}{3\Z}-\{0\}$\\
-		$\implies$ On en dÃ©duit que $(\frac{\Z}{3\Z}-\{0\},\otimes)$ est un groupe fini/
+		$\implies$ On en déduit que $(\frac{\Z}{3\Z}-\{0\},\otimes)$ est un groupe fini/
 		\paragraph{}
 		Soit $(G,\otimes)$ un groupe fini et $H < G$\\
 		On dit que $H$ est stable par $\otimes$ ssi:\\
 		$\forall(x,y) \in H*H, x \otimes y \in H$\\
-		$\implies$ On peut considÃ©rer que la restriction de $\otimes$ Ã  $H$ est un opÃ©rateur binaire sur $H$.
-		\paragraph{DÃ©finition}
+		$\implies$ On peut considérer que la restriction de $\otimes$ à $H$ est un opérateur binaire sur $H$.
+		\paragraph{Définition}
 		On dit que $(H,\otimes)$ est un sous groupe de $(G,\otimes)$ si
 		\begin{enumerate}
 			\item $H$ est stable par $\otimes$
@@ -86,4 +87,71 @@
 		Soit $(G,\otimes)$ un groupe fini\\
 		
 	\end{itemize}
+	\section{Anneaux}
+	\section{Corps}
+	\section{Espaces Vectoriels}
+	\chapter{Arithmétiques et modèles de complexité}
+	\paragraph{Enjeu}
+	Multiplier 2 par 3 en machine n'a pas le même coût que multiplier deux nombres qui ont 30 millions de chiffres.
+	\paragraph{Complexité}
+	On veut évaluer les complexités en temps (pas en mémoire)
+	\newline
+	On s'appuie sur le modèle RAM (random access machine) : un programme écrit dans ce modèle :
+	\begin{enumerate}
+		\item écrire ou lire sur des bandes / zones mémoires (on suppose) instantanément
+		\item l'addition, la soustraction, la multiplication et la division sur des mots machines s'effectuent en une unité temporelle
+		\item les sauts de mémoire se font instantanément
+	\end{enumerate}
+	On peut définir deux types de complexité en temps.
+	\paragraph{Complexité arithmétique}
+	On compte les opérations binaires effectuées par un algorithme
+	\paragraph{Exemple}
+	Soit $(G,\otimes)$ un groupe
+	\newline
+	On compte le nombre de fois que l'on applique $\otimes$
+	\newline
+	$\implies$ Ce modèle est considéré pertinent si toutes les données numériques ont une taille inférieure ou égale au mot machine (64 bits sur les machines actuelles en 2018)
+	\begin{itemize}
+		\item $\frac{\Z}{p\Z}$ avec $p$ premier est un corps
+		\newline
+		Si $p \leq 2^{64}$ (par exemple $p=65521\leq2^{16}$)le modèle de complexité arithmétique est "presque pertinent".
+		\item $a,b$ dans $\frac{\Z}{p\Z}$
+		\newline
+		$a+b\leq2^{17}$
+		\newline
+		$a*b\leq2^{32}$
+		\newline
+		$\implies$ Si pertinent mais pas dans $\frac{\Z}{p\Z}$
+		\\
+		mais dans $\frac{\Z}{p\Z}$ on a\\
+		$a+b\mod p$ et $a*b\mod p$ $\implies$ 2 opérations sur les mots machines pour un $+$ ou $*$ donc pour cela que pas totalement pertinent, d'où la notation O pour enlever les facteurs proportionnels
+		\item $(\Q,+,*)$\\
+		$\frac{a_1}{b_1}+\frac{a_2}{b_2}=\frac{a_1b_2+a_2b_1}{b_1b_2}\implies$3 multiplications + 1 addition\\
+		$\frac{a_1}{b_1}*\frac{a_2}{b_2}=\frac{a_1a_1}{b_1b_2}\implies$ 2 multiplication\\
+		Donc $+$ coute deux fois plus que $*$\\
+		De plus comme $\Q$ est infini, $a$ et $b$ peuvent dépasser $2^{64}$ et donc être supérieur à un mot machine.
+	\end{itemize}
+	\paragraph{Complexité binaire}
+	\paragraph{Objectif}
+	Tenir compte de la taille des données manipulées\\
+	On le dénit sur $\Z$\\
+	On se donne $b\in\N-\{0\}$
+	\paragraph{Lemme}
+	$\forall n \in \N$ il existe une unique $(b_0\dotsb_k)$ telle que :
+	\begin{enumerate}
+		\item $n = b_0 + b_1b+b_2b^2+\dots+b_kb^k$
+		\item $b_i\in\{0\dots b-1\}$ avec $b_k\neq0$
+	\end{enumerate}
+	Il s'agit de la représentation en base b d'un entier naturel.\\
+	Si $n\in\Z, n\geq 0\implies$ on a sa représentation en base b.\\
+	Si $n<0,-n\geq 0 \implies$ on a sa représentation.\\
+	Pour $\Q$ il suffit de remarquer que $\Q=\{(a,b), a\in \Z, b\in \Z-\{0\}, pgcd(a,b)=1\}\approx(\Z*\Z-\{0\})$\\
+	Le modèle de complexité binaire consiste à compter les opérations dans $\frac{\Z}{b\Z}$
+	\paragraph{Exemple}
+	$7*9$ en base 2.\\
+	$9=1+0*2+0*2^2+1*2^3 \implies(1,0,0,1)$\\
+	$7=1+1*2+1*2^2 \implies (1,1,1)$\\
+	Bit de poids fort à la fin\\
+	$9*7=1*2^3(1+2+2^2)+0x2^3(1+2+2^2)+0*2(1+2+2^2)+1(1+2+2^2)$\\
+	$3*4=12$ multiplications et 3 additions, donc 15 opérations
 \end{document}
